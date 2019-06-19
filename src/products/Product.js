@@ -17,7 +17,7 @@ export class Product extends React.Component{
                                        this.props.click(this.props.data);
 
                                     }
-                                }>Detailsssssssss</button>
+                                }>Detail</button>
                          <input type="number" onChange={(event)=> {
   this.props.onChange(event.target.value);
                  }

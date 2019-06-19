@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Product } from './Product';
-
+import axios from 'axios';
 
 export class ProductList extends Component {
     constructor(props){
@@ -11,23 +11,16 @@ export class ProductList extends Component {
             selectedProducts:[],
             counter: 2,
             products:[   
-                {
-                    id:1,
-                    name:'Vivo',
-                    price:15000
-                },
-                {
-                    id:2,
-                    name:'Samsung',
-                    price:20000
-                },
-                {
-                    id:3,
-                    name:'I-Phone',
-                    price:40000
-                }
+               
             ]
         };
+    }
+
+    componentDidMount(){
+        let promi = axios.get('https://my-json-server.typicode.com/rajvarma567/json/products');
+        promi.then(response => this.setState({
+            products: response.data
+        }))
     }
 
  handleSubmit(data){
